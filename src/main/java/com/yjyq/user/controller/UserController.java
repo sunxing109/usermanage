@@ -12,15 +12,24 @@ import java.util.List;
 @Controller
 public class UserController {
 
+    /**
+     * 用户Service
+     */
     @Autowired
-    private UserServiceImpl userServiceImpl;
+    private UserServiceImpl userService;
 
-    @RequestMapping("/home.do")
-    public String home(Model model) throws Exception{
-        System.out.println("首页");
-        List<User> userList = userServiceImpl.findUser();
+    /**
+     *
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/findUserList.do")
+    public String findUserList(Model model) throws Exception{
+        List<User> userList = userService.findUserList();
         System.out.println(userList);
         model.addAttribute("userList",userList);
-        return "home";
+        return "findUserList";
     }
+
 }

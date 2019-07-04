@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjyq.user.dao.UserDao">
+
+    <!--  根据id获取用户信息   -->
+    <select id="getUserById" parameterType="java.lang.String" resultType="com.yjyq.user.dto.User">
+        SELECT   USERID,USERNAME,USERSEX,USERAGE,USERNO,USERPHONENUM,CREATETIME,MODIFYTIME,USERSTATE
+            FROM USER
+            WHERE USERID=#{userId}
+    </select>
+
+    <!--  查询用户集合  -->
+    <select id="findUserList" resultType="com.yjyq.user.dto.User">
+        SELECT   USERID,USERNAME,USERSEX,USERAGE,USERNO,USERPHONENUM,CREATETIME,MODIFYTIME,USERSTATE
+            FROM USER
+    </select>
+</mapper>

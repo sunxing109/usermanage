@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title layout:fragment="topTitle"></title>
+    <script src="/common/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/common/theme_blue/css/app.css">
+    <link rel="stylesheet" href="/common/default.css">
+    <link rel="stylesheet" href="/common/theme_blue/css/app-extend.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" layout:fragment="pageScript"></script>
+</head>
+<body class="app" data-menu="layoutTop">
+<layout class="app-layout">
+    <header class="app-header" >
+        <nav class="navbar navbar-expand-sm navbar-dark">
+            <a class="navbar-brand app-logo" href="#" layout:fragment="appHeader"></a>
+        </nav>
+    </header>
+    <div class="container-fluid h-100">
+        <div class="card card_find h-100">
+            <div class="card-body overflow-y-auto" layout:fragment="content">
+
+            </div>
+        </div>
+    </div>
+    <footer class="app-footer"  layout:fragment="bottomfooter">
+    </footer>
+</layout>
+</body>
+</html>

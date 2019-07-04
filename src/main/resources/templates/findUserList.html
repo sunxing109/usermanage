@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout_base">
+<title layout:fragment="topTitle">用户管理</title>
+    <script type="text/javascript" layout:fragment="pageScript"></script>
+<div  layout:fragment="appHeader"><span style="margin-left: 10px;">用户管理</span></div>
+<div layout:fragment="content">
+    <div class="container">
+        <h2>用户列表</h2>
+        <p>简单用户信息展示</p>
+        <table class="table">
+                    <thead>
+                    <tr>
+                        <td>姓名</td>
+                        <td>性别</td>
+                        <td>年龄</td>
+                        <td>联系方式</td>
+                        <td>状态</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="user : ${userList}">
+                            <td th:text="${user.userName}"></td>
+                            <td th:text="${user.userSex}"></td>
+                            <td th:text="${user.userAge}"></td>
+                            <td th:text="${user.userPhoneNum}"></td>
+                            <td th:text="${user.userState}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</html>
+</html>
