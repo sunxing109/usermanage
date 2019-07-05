@@ -28,4 +28,9 @@ public interface UserDao {
      */
     List<User> findUserList();
 
+    /**
+     *  添加用户
+     * @param user 用户信息
+     */
+    void addUser(User user);
 }

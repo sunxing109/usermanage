@@ -3,15 +3,14 @@ package com.yjyq.user.dto;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @ApiModel
 public class User {
 
-    @ApiModelProperty(name = "用户Id")
+    @ApiModelProperty(value = "用户Id")
     private String userId;
-    @ApiModelProperty(name = "用户名")
+    @ApiModelProperty(value = "用户名")
     private String userName ;
     private String userSex;
     private int userAge;
@@ -20,18 +19,6 @@ public class User {
     private Date createTime;
     private Date modifyTime;
     private String userState;
-
-    public User(String userName, String userSex, int userAge, String userNo, String userPhoneNum, String userState) {
-        this.userName = userName;
-        this.userSex = userSex;
-        this.userAge = userAge;
-        this.userNo = userNo;
-        this.userPhoneNum = userPhoneNum;
-        this.userState = userState;
-    }
-
-    public User() {
-    }
 
     public String getUserId() {
         return userId;

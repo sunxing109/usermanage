@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
  * @version 1.0 $
  */
 @Component
-@Order(101)
+@Order(100)
 public class RunTimeTaskCommandLineRunnerTest implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("任务启动方式：CommandLineRunner" + args);
+        System.out.println("任务启动方式：CommandLineRunner");
     }
 }

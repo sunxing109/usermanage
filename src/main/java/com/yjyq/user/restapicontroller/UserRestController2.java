@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "用户管理相关接口2")
-@RequestMapping("/user2")
+@RequestMapping("/rest2")
 public class UserRestController2 {
 
     /**

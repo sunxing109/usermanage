@@ -34,4 +34,12 @@ public class UserServiceImpl {
     public List<User> findUserList() throws Exception{
         return userDao.findUserList();
     }
+
+    /**
+     *  添加用户
+     * @param user 用户信息
+     */
+    public void addUser(User user) throws Exception{
+        userDao.addUser(user);
+    }
 }

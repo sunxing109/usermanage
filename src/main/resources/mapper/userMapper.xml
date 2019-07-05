@@ -14,4 +14,9 @@
         SELECT   USERID,USERNAME,USERSEX,USERAGE,USERNO,USERPHONENUM,CREATETIME,MODIFYTIME,USERSTATE
             FROM USER
     </select>
+
+    <insert id="addUser" parameterType="com.yjyq.user.dto.User">
+        INSERT INTO User (USERID,USERNAME,USERSEX,USERAGE,USERNO,USERPHONENUM,CREATETIME,MODIFYTIME,USERSTATE)
+            VALUES(sys_guid(), #{userName}, #{userSex}, ${userAge}, #{userNo}, #{userPhoneNum},sysdate,sysdate, #{userState});
+    </insert>
 </mapper>
