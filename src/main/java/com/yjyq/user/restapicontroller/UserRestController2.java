@@ -1,12 +1,15 @@
 package com.yjyq.user.restapicontroller;
 
 import com.yjyq.user.dao.UserDao;
+import com.yjyq.user.dto.Book;
+import com.yjyq.user.dto.Cat;
 import com.yjyq.user.dto.User;
 import com.yjyq.user.service.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,5 +44,19 @@ public class UserRestController2 {
         return userList;
     }
 
+    /**
+     * http://localhost:8081/hello2?c.name=cat&b.name=book
+     * @param cat
+     * @param book
+     * @return
+     */
+    @RequestMapping("/hello2")
+    public String hello2(@ModelAttribute("c") Cat cat, @ModelAttribute("b") Book book) {
+        String testString = "hello controller advice";
+        System.out.println(cat);
+        System.out.println(book);
+        return testString;
+
+    }
 
 }
