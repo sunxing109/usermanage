@@ -8,10 +8,7 @@ import com.yjyq.user.service.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -50,13 +47,25 @@ public class UserRestController2 {
      * @param book
      * @return
      */
-    @RequestMapping("/hello2")
-    public String hello2(@ModelAttribute("c") Cat cat, @ModelAttribute("b") Book book) {
+    @RequestMapping("/getInfo")
+    public String getInfo(@ModelAttribute("c") Cat cat, @ModelAttribute("b") Book book) {
         String testString = "hello controller advice";
         System.out.println(cat);
         System.out.println(book);
         return testString;
 
+    }
+
+//    @CrossOrigin(value = "http://localhost:8082")
+    @GetMapping("/hello")
+    public String hello() {
+        return "get hello1";
+    }
+
+    @CrossOrigin(value = "http://localhost:8082")
+    @PostMapping("/hello")
+    public String hello2(){
+        return "post hello1";
     }
 
 }

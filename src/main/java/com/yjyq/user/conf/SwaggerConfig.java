@@ -1,4 +1,4 @@
-package com.yjyq.user.initdata;
+package com.yjyq.user.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
