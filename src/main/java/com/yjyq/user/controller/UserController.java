@@ -10,7 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+/** 用户管理控制器
+ * @author sunxingba
+ * @version 1.0 $
+ */
 @Controller
 public class UserController {
 
@@ -34,6 +39,14 @@ public class UserController {
     @RequestMapping("/findUserList.do")
     public String findUserList(Model model) throws Exception{
         List<User> userList = userService.findUserList();
+        userList.stream().map(user -> { return user.getUserAge();}).collect(Collectors.toList());
+        userList.stream().filter(user -> user.getUserAge()!=5).collect(Collectors.toList());
+        userList.stream().forEach(user -> System.out.println(""));
+        userList.stream().collect(Collectors.toSet());
+        userList.stream().findFirst();
+      Runnable r = () -> System.out.println("hello,lambda");
+      r.run();
+
         logger.info("获取用户集合");
         System.out.println(userList);
         model.addAttribute("userList",userList);
