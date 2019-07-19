@@ -44,15 +44,15 @@ public class UserController {
         userList.stream().forEach(user -> System.out.println(""));
         userList.stream().collect(Collectors.toSet());
         userList.stream().findFirst();
-      Runnable r = () -> System.out.println("hello,lambda");
-      r.run();
+        // Runnable r = () -> System.out.println("hello,lambda");
+        // r.run();
 
         logger.info("获取用户集合");
         System.out.println(userList);
         model.addAttribute("userList",userList);
         try {
             logger.debug("开始-1");
-            userList.get(-1);
+            // userList.get(-1);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("获取列表-1错误:{}", e);
