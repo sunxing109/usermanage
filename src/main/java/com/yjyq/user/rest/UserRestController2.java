@@ -1,6 +1,5 @@
-package com.yjyq.user.restapicontroller;
+package com.yjyq.user.rest;
 
-import com.yjyq.user.dao.UserDao;
 import com.yjyq.user.dto.Book;
 import com.yjyq.user.dto.Cat;
 import com.yjyq.user.dto.User;

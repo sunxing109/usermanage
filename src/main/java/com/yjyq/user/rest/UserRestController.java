@@ -1,17 +1,13 @@
-package com.yjyq.user.restapicontroller;
+package com.yjyq.user.rest;
 
-import com.yjyq.user.dao.UserDao;
 import com.yjyq.user.dto.User;
 import com.yjyq.user.service.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 /** 用户管理Rest接口swagger
  *  参考地址
