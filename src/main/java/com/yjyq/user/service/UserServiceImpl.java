@@ -42,4 +42,8 @@ public class UserServiceImpl {
     public void addUser(User user) throws Exception{
         userDao.addUser(user);
     }
+
+    public void deleteUserById(String userId) throws Exception {
+        userDao.deleteUserById(userId);
+    }
 }

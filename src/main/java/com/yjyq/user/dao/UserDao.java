@@ -33,4 +33,10 @@ public interface UserDao {
      * @param user 用户信息
      */
     void addUser(User user);
+
+    /**
+     *  删除用户
+     * @param userId 用Id
+     */
+    void deleteUserById(@Param("userId") String userId);
 }

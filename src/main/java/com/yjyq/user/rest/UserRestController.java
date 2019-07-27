@@ -2,6 +2,7 @@ package com.yjyq.user.rest;
 
 import com.yjyq.user.dto.User;
 import com.yjyq.user.service.UserServiceImpl;
+import groovyjarjarpicocli.CommandLine;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -50,6 +51,14 @@ public class UserRestController {
         return user;
     }
 
+    @DeleteMapping("/user")
+    @ApiOperation("根据Id删除用户")
+    @ApiImplicitParam(name="userId", value = "用户id", required = true)
+    public void deleteUserById(@RequestParam String userId) throws Exception {
+        userService.deleteUserById(userId);
+    }
+
+
     /**
      *  添加用户
      * @param user 用户json
@@ -74,13 +83,14 @@ public class UserRestController {
                         @ApiImplicitParam(name = "userNo", value = "编号",required = true),
                         @ApiImplicitParam(name = "userPhoneNum", value = "联系方式", required = true),
                         @ApiImplicitParam(name = "userState", value = "用户状态", required = true)})
-    public void addUser2(@RequestParam(required = true) String userName, String userSex, int userAge, String userNo, String userPhoneNum, String userState) throws Exception{
+    public void addUser2(String userName, String userSex, int userAge, String userNo, String userPhoneNum, String userState) throws Exception{
         User user = new User();
             user.setUserName(userName);
             user.setUserSex(userSex);
             user.setUserAge(userAge);
             user.setUserNo(userNo);
             user.setUserPhoneNum(userPhoneNum);
+            user.setUserState(userState);
         userService.addUser(user);
     }
 

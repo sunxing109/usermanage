@@ -15,8 +15,14 @@
             FROM USER
     </select>
 
+    <!--   添加用户-->
     <insert id="addUser" parameterType="com.yjyq.user.dto.User">
         INSERT INTO User (USERID,USERNAME,USERSEX,USERAGE,USERNO,USERPHONENUM,CREATETIME,MODIFYTIME,USERSTATE)
             VALUES(sys_guid(), #{userName}, #{userSex}, ${userAge}, #{userNo}, #{userPhoneNum},sysdate,sysdate, #{userState});
     </insert>
+
+    <!--  删除用户  -->
+    <delete id="deleteUserById" parameterType="java.lang.String">
+        delete from user where userId = #{userId}
+    </delete>
 </mapper>
