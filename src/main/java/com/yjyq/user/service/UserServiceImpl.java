@@ -43,6 +43,20 @@ public class UserServiceImpl {
         userDao.addUser(user);
     }
 
+    /**
+     *  更新用户
+     * @param user 用户信息
+     */
+    public void updateUser(User user) throws Exception{
+        userDao.updateUser(user);
+    }
+
+
+    /**
+     *  删除用户
+     * @param userId 用户Id
+     * @throws Exception
+     */
     public void deleteUserById(String userId) throws Exception {
         userDao.deleteUserById(userId);
     }

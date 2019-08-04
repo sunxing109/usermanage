@@ -51,12 +51,14 @@ public class UserRestController {
         return user;
     }
 
+
     @DeleteMapping("/user")
     @ApiOperation("根据Id删除用户")
     @ApiImplicitParam(name="userId", value = "用户id", required = true)
     public void deleteUserById(@RequestParam String userId) throws Exception {
         userService.deleteUserById(userId);
     }
+
 
 
     /**
@@ -68,6 +70,17 @@ public class UserRestController {
     @ApiOperation("添加用户")
     public void addUser(@RequestBody User user) throws Exception{
         userService.addUser(user);
+    }
+
+    /**
+     *  添加用户
+     * @param user 用户json
+     * @throws Exception
+     */
+    @PutMapping("/user")
+    @ApiOperation("添加用户")
+    public void updateUser(@RequestBody User user) throws Exception{
+        userService.updateUser(user);
     }
 
 

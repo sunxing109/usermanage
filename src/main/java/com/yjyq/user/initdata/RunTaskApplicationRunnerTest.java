@@ -15,9 +15,10 @@ import java.util.Date;
  * @author sunxingba
  * @version 1.0 $
  */
-@Component
-@Order(101)
+//@Component
+//@Order(101)
 public class RunTaskApplicationRunnerTest implements ApplicationRunner {
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {

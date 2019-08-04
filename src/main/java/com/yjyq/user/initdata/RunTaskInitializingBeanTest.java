@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @author sunxingba
  * @version 1.0 $
  */
-@Component
+//@Component
 public class RunTaskInitializingBeanTest implements InitializingBean {
 
     @Override

@@ -21,6 +21,18 @@
             VALUES(sys_guid(), #{userName}, #{userSex}, ${userAge}, #{userNo}, #{userPhoneNum},sysdate,sysdate, #{userState});
     </insert>
 
+    <!--  更新用户  -->
+    <update id="updateUser" parameterType="com.yjyq.user.dto.User">
+        update User
+            set USERNAME=#{userName},
+                USERSEX=#{userSex},
+                USERAGE=${userAge},
+                USERNO=#{userNo},
+                USERPHONENUM=#{userPhoneNum},
+                MODIFYTIME=sysdate,
+                USERSTATE=#{userState}
+             where USERID=#{userId}
+    </update>
     <!--  删除用户  -->
     <delete id="deleteUserById" parameterType="java.lang.String">
         delete from user where userId = #{userId}

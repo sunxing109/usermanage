@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
  * @author sunxingba
  * @version 1.0 $
  */
-@Component
-@Order(100)
+//@Component
+//@Order(100)
 public class RunTimeTaskCommandLineRunnerTest implements CommandLineRunner {
 
     @Override
