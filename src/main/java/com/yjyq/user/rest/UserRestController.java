@@ -10,6 +10,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /** 用户管理Rest接口swagger
  *  参考地址
  *  https://petstore.swagger.io
@@ -31,6 +33,19 @@ public class UserRestController {
      *  获取所有用户
      * @return 用户列表
      */
+    @GetMapping("/users")
+    @ApiOperation("查询用户")
+    public List<User> getUsers() throws Exception{
+        // 查询所有用户
+        List<User> userList = userService.findUserList();
+        System.out.println(userList);
+        return userList;
+    }
+
+    /**
+     *  获取用户
+     * @return 用户
+     */
     @GetMapping("/user")
     @ApiOperation("查询用户")
     @ApiImplicitParam(name="userId", value = "用户id" , defaultValue = "2", required = true)
@@ -40,8 +55,8 @@ public class UserRestController {
     }
 
     /**
-     *  获取所有用户
-     * @return 用户列表
+     *  获取用户
+     * @return 用户
      */
     @GetMapping("/user/{userId}")
     @ApiOperation("查询用户")
