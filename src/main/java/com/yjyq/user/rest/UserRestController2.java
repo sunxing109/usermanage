@@ -61,7 +61,7 @@ public class UserRestController2 {
         return "get hello1";
     }
 
-    @CrossOrigin(value = "http://localhost:8082")
+//    @CrossOrigin(value = "http://localhost:8082")
     @PostMapping("/hello")
     public String hello2(){
         return "post hello1";

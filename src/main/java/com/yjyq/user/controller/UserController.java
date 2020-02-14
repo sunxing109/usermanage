@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,7 +37,7 @@ public class UserController {
      * @return
      * @throws Exception
      */
-    @RequestMapping("/findUserList.do")
+    @RequestMapping("/")
     public String findUserList(Model model) throws Exception{
         List<User> userList = userService.findUserList();
         userList.stream().map(user -> { return user.getUserAge();}).collect(Collectors.toList());
@@ -47,9 +48,11 @@ public class UserController {
         // Runnable r = () -> System.out.println("hello,lambda");
         // r.run();
 
+        //LocalDateTime tt = new LocalDateTime(null, null);
         logger.info("获取用户集合");
         System.out.println(userList);
         model.addAttribute("userList",userList);
+        Integer a = 0;
         try {
             logger.debug("开始-1");
             // userList.get(-1);
