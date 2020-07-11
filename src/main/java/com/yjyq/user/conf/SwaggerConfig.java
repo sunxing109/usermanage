@@ -30,7 +30,7 @@ public class SwaggerConfig {
                 .pathMapping("/")
                 .select()
                 // 指定api所在包(包下的所有controller 都会被显示为api)
-                .apis(RequestHandlerSelectors.basePackage("com.yjyq.user.restapicontroller"))
+                .apis(RequestHandlerSelectors.basePackage("com.yjyq.user.rest"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(new ApiInfoBuilder()
                             .title("SpringBoot整合swagger")

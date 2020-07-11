@@ -39,6 +39,7 @@ public class UserController {
      */
     @RequestMapping("/")
     public String findUserList(Model model) throws Exception{
+        model.addAttribute("js_variable","消息");
         List<User> userList = userService.findUserList();
         userList.stream().map(user -> { return user.getUserAge();}).collect(Collectors.toList());
         userList.stream().filter(user -> user.getUserAge()!=5).collect(Collectors.toList());
@@ -66,5 +67,6 @@ public class UserController {
         logger.info("返回到findUserList.html页面");
         return "findUserList";
     }
+
 
 }
