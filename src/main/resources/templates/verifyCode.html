@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout_base">
+<title layout:fragment="topTitle">用户管理</title>
+    <script type="text/javascript" layout:fragment="pageScript"></script>
+<div  layout:fragment="appHeader"><span style="margin-left: 10px;">用户管理</span></div>
+<div layout:fragment="content">
+<!--    <div style="display: flex;justify-content: ">-->
+
+<!--    </div>-->
+
+    <div class="container">
+
+        <h2>测试验证码：</h2>
+        请输入验证码：<input type="text" name="code" />
+        <img id="codeimg" src="rest2/createCode" onclick="changeImg()"><a href="javascript:void(0);" onclick="changeImg()">看不清，换一张</a>
+        <button onclick="submit()">提交</button>
+        <script type="text/javascript">
+
+            //改变验证码事件
+            function changeImg(){
+                var img = document.getElementById('codeimg');
+                img.src = "/rest2/createCode?x=" + Math.floor(Math.random()*100)
+            }
+
+            //提交验证并验证验证码
+            function submit(){
+                var input = document.getElementsByTagName('input')[0];
+
+                //ajax提交
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState == 4 && xhr.status == 200) {
+                        alert(xhr.responseText);
+                    }
+                }
+                xhr.open('get','/rest2/verifyCode?code=' + input.value);
+                xhr.send(null);
+
+            }
+        </script>
+
+            </div>
+</div>
+</html>

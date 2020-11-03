@@ -4,11 +4,16 @@ import com.yjyq.user.dto.Book;
 import com.yjyq.user.dto.Cat;
 import com.yjyq.user.dto.User;
 import com.yjyq.user.service.UserServiceImpl;
+import com.yjyq.user.util.VerifyCode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -65,6 +70,44 @@ public class UserRestController2 {
     @PostMapping("/hello")
     public String hello2(){
         return "post hello1";
+    }
+
+    /**
+     * 生成验证码
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    @RequestMapping("/createCode")
+    public void createCode(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        resp.setHeader("Pragma", "No-cache");
+        resp.setHeader("Cache-Control", "no-cache");
+        resp.setDateHeader("Expires", 0);
+        resp.setContentType("image/jpeg");
+
+        //生成随机字串
+        String verifyCode = VerifyCode.generateVerifyCode(4);
+        //存入会话session
+        req.getSession().setAttribute("CODE", verifyCode.toLowerCase());
+
+        //生成图片
+        int width = 100;//宽
+        int height = 40;//高
+        VerifyCode.outputImage(width, height, resp.getOutputStream(), verifyCode);
+    }
+
+    @RequestMapping("/verifyCode")
+    public void verifyCode(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String code = req.getParameter("code");
+        String key = (String) req.getSession().getAttribute("CODE");
+        if(code != null && code.equalsIgnoreCase(key)){
+            req.getSession().removeAttribute("CODE");
+            resp.getWriter().println(true);
+        }else{
+            resp.getWriter().println(false);
+        }
     }
 
 }

@@ -4,6 +4,12 @@
       layout:decorator="layout_base">
 <title layout:fragment="topTitle">用户管理</title>
     <script type="text/javascript" layout:fragment="pageScript"></script>
+<script type="text/javascript" src="ureport-asserts/venderjs/jquery.min.js"></script>
+<script type="text/javascript" src="ureport-asserts/venderjs/bootstrap.min.js"></script>
+<script type="text/javascript" src="ureport-asserts/venderjs/Chart.bundle.min.js"></script>
+<script type="text/javascript" src="ureport-asserts/venderjs/chartjs-plugin-datalabels.min.js"></script>
+<script type="text/javascript" src="ureport-asserts/venderjs/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="ureport-asserts/js/preview.bundle.js"></script>
 <div  layout:fragment="appHeader"><span style="margin-left: 10px;">用户管理</span></div>
 <div layout:fragment="content">
 <!--    <div style="display: flex;justify-content: ">-->
@@ -11,6 +17,10 @@
 <!--    </div>-->
 
     <div class="container">
+        <a href="http://localhost:8080/ureport/word?_u=用户信息列表模板.ureport.xml" >word</a>
+        <a href="http://localhost:8080/ureport/excel?_u=用户信息列表模板.ureport.xml" >execl</a>
+        <a href="http://localhost:8080/ureport/pdf?_u=用户信息列表模板.ureport.xml" TARGET="_blank">pdf</a>
+
         <div class="box">
             <div class="column">
                 <span class="item"></span>
@@ -27,6 +37,9 @@
             var msg = [[${js_variable}]];
             console.log(msg);
         </script>
+        <button type="button" class="btn btn-default ureport-print" style="display:inline-block;padding:0;background:#f8f8f8;border:none;margin:3px" title="在线打印">
+            <img src='ureport-asserts/icons/print.svg' width="20px" height="20px">
+        </button>
         <table class="table">
             <thead >
             <tr>
